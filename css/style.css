@@ -1,0 +1,159 @@
+/* === Reset & Basis === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* === Navigation === */
+header {
+    background-color: #1a1a2e;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #4fc3f7;
+}
+
+/* === Hero Sectie === */
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* === Projects Grid === */
+.projects-preview {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+.projects-preview h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #1a1a2e;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card .info {
+    padding: 1.5rem;
+}
+
+.project-card h3 {
+    margin-bottom: 0.5rem;
+    color: #1a1a2e;
+}
+
+.project-card .category {
+    display: inline-block;
+    background: #4fc3f7;
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* === Footer === */
+footer {
+    background: #1a1a2e;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
