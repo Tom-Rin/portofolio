@@ -1,39 +1,97 @@
-/* === Reset & Basis === */
+/* === Design Tokens === */
+:root {
+    /* Palette */
+    --color-paper: #fcfbf7;
+    --color-ink: #1a1c1e;
+    --color-line: #e4e0d8;
+    --color-accent: #10b297; /* Teal */
+
+    /* Typography */
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Layout */
+    --max-width: 800px;
+    --line-height: 1.6;
+    --spacing-unit: 1rem;
+    --transition-speed: 0.3s;
+}
+
+/* === Base & Reset === */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
+    font-family: var(--font-body);
+    line-height: var(--line-height);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
 }
 
-/* === Navigation === */
+/* Accessibility: Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* === Typography === */
+h1, h2, h3, .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); }
+h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1.5rem;
+    max-width: 65ch; /* Optimal line length */
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-speed);
+}
+
+a:hover {
+    border-color: var(--color-accent);
+}
+
+.mono {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* === Layout Elements === */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
 header {
-    background-color: #1a1a2e;
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-nav {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-line);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
 }
 
 nav ul {
@@ -42,118 +100,91 @@ nav ul {
     gap: 2rem;
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #4fc3f7;
-}
-
-/* === Hero Sectie === */
 .hero {
+    padding: 8rem 0;
     text-align: center;
-    padding: 6rem 2rem;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: #fff;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+    margin: 0 auto 2rem auto;
 }
 
-/* === Projects Grid === */
-.projects-preview {
-    max-width: 1200px;
-    margin: 3rem auto;
-    padding: 2rem;
+.section {
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--color-line);
 }
 
-.projects-preview h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #1a1a2e;
-}
-
+/* === Editorial Grid === */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
+    margin: 4rem 0;
 }
 
 .project-card {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    border: 1px solid var(--color-line);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-card .info {
-    padding: 1.5rem;
+.project-card .category {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
 }
 
 .project-card h3 {
     margin-bottom: 0.5rem;
-    color: #1a1a2e;
 }
 
-.project-card .category {
-    display: inline-block;
-    background: #4fc3f7;
-    color: #fff;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+/* === Simple vs Expert System === */
+details {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--color-line);
+    border-radius: 0; /* Keeping it editorial */
 }
 
-.project-card p {
+summary {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    cursor: pointer;
+    outline: none;
+}
+
+summary:hover {
+    color: var(--color-accent);
+}
+
+/* Custom marker for summary */
+summary::after {
+    content: " +";
+}
+
+.details-content {
+    padding-top: 1rem;
     font-size: 0.95rem;
-    color: #666;
 }
 
 /* === Footer === */
 footer {
-    background: #1a1a2e;
-    color: #fff;
+    padding: 4rem 0;
     text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
+    border-top: 1px solid var(--color-line);
 }
 
 /* === Responsive === */
 @media (max-width: 768px) {
-    nav ul {
+    header {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
     }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
+    .hero {
+        padding: 4rem 0;
     }
 }

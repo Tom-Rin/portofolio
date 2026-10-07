@@ -1,80 +1,75 @@
 # Persoonsportfolio — plan
 
-**Doel:** een eigen, **bold & onderscheidende** persoonsportfolio als **data scientist**, gemaakt in HTML/CSS.
-Geen generieke AI-template — eenDistinctief point-of-view (editorial / document-gevoel).
+**Doel:** Een eigen, **bold & onderscheidende** persoonsportfolio voor een **data scientist**, uitgevoerd als een "open-source editorial" — een document-achtige ervaring die zich onderscheidt van generieke SaaS-websites.
 
 ---
 
-## 1. Identiteit & rollen
+## 1. Identiteit & Rollen
+- **Naam:** `[Naam]` (Placeholder blijft behouden).
+- **Rol:** Data Scientist & Designer/Maker.
+- **Taal:** Nederlands, simpel en jargonvrij voor de leek; technische diepgang voor experts.
 
-- **Naam (placeholder):** `[Naam]` — de gebruiker vult dit zelf in (of ik vul het nu in).
-- **Rol (gerekend):** **data scientist** — én designer/maker van de eigen site.
-- **Taal:** alles volledig in het **Nederlands**, in **simpele / jargonvrije** taal.
-  - De leek snapt direct wat elk project inhoudt.
-  - Voor **experts** is bij elk project een aparte "uitleg voor experts"-section met diepgang.
+## 2. Design Tokens (Gevat door skills.md)
+*Design gericht op een distinctief "editorial" gevoel zonder AI-clichés.*
 
-## 2. Design
+### Kleurenpalet (Tokens)
+- **Paper (Basis):** `#fcfbf7` — Een zeer lichte, bijna neutrale tint om de "warm-cream tell" te vermijden.
+- **Ink (Tekst):** `#1a1c1e` — Diep antraciet/zwart voor maximale leesbaarheid.
+- **Line (Structuur):** `#e4e0d8` — Voor subtiele scheidingen en rasterlijnen.
+- **Signatuur (Accent):** `#10b297` (Teal) — De enige krachtige kleur, gebruikt voor interactie en belangrijke headers.
 
-- **Concept:** *open-source editorial* — document-/editorial-uitstraling met **sterke typografie**.
-- **Palette (6 kleuren):**
-  - paper `#faf8f3` — basisachtergrond
-  - ink `#16191d` — tekst
-  - line `#e4e0d8` — lijnen/afdelingen
-  - signatuur-accent **teal `#10b297`** — de **enige** krachtige kleur (held, niet rood/rode knap)
-  - (bedoeld) één lichte extra warmte + base-toon
-- **Typeface:** **DM Serif Display** (koppen) + **Inter** (tekst) + **JetBrains Mono** (klein "craft"-detail).
-- **Geen** generieke AI-tells: warm-cream, terracotta, acidgroen, kartonnen SaaS-cards, ALL-CAPS-blauwe titelbalk, '→'-knoppen, geremde beweging.
-- **Reduced-motion:** respecteerprefers-reduced-motion (geremde/vervangende animaties).
-- **Bold** door: veel wit/lichte ruimte, grote serif-koppen, een strakke raster/drukgevoel, en de teal-signatuur die écht opvalt.
+### Typografie
+- **Display (Koppen):** *DM Serif Display* — Karaktervol, autoritair en typisch voor een editorial look.
+- **Body (Tekst):** *Inter* — Strak, modern en zeer leesbaar.
+- **Technical (Details):** *JetBrains Mono* — Voor code-fragmenten of kleine "craft" details.
 
-## 3. Structuur (HTML + CSS, geen JS)
-
-- `css/style.css` — tokens, design-system, responsive (mobiel-first), reduced-motion.
-- `index.html` — hero (`[Naam]`, data scientist tagline, CTA's), overzicht "recent projecten".
-- `over-mij.html` — achtergrond/erkenning.
-- `projects.html` — overzichtkaartjes naar detailpagina's.
-- `contact.html` — dummy LinkedIn-link (gebruiker vervangt later zelf).
-- Per project: een **duidelijk kopieerbare HTML-sjabloonblok** + tekst + afbeeldingen (één map per project).
-
-### Simple vs Expert
-- Bij elk project een `simple / expert` toggle in het DOM (`<details>/<summary>`, geen JS).
-- Teal Balk als visuele indicator; **tekst** (geen code) verklaart wat het project bewijst.
-
-### Afbeeldingen
-- **Geen placeholder-afbeeldingen bouwen** — de `img/`-map blijft leeg tot eigen beelden erin komen.
-- Kaarten tonen vanaf begin al **tekst** (titel + regel), dus ze zien er nooit "lege template" uit.
+### Layout & Principes
+- **Concept:** "Document-first". Veel witte ruimte, grote koppen, sterke focus op tekst.
+- **Geen AI-clichés:** Geen ronde kaarten met zachte schaduwen (SaaS-cards), geen terracotta accenten, geen `→` knoppen.
+- **Motion:** Respecteert `prefers-reduced-motion`. Subtiele reveals, geen "fade-and-slide" op elk element.
+- **Responsive:** Mobiel-first benadering waarbij de leesbaarheid van de "publicatie" behouden blijft.
 
 ---
 
-## 4. Voorbeeldprojecten
+## 3. Structuur & Architectuur
+- `css/style.css` — Bevat de tokens, design-system en responsive grid.
+- `index.html` — Hero section (`[Naam]`, tagline), "Recent Projecten" overzicht.
+- `over-mij.html` — Achtergrond (inhoud wordt door gebruiker ingevuld).
+- `projects.html` — Overzicht van projecten, gecategoriseerd in drie groepen.
+- `contact.html` — Contactinformatie & links.
+- `projects/_TEMPLATE.html` — Het basis-HTML blok voor alle projectpagina's.
 
-- Er **mogen 2 dummy-voorbeeldprojecten** komen.
-  - Een eerste met **meer diepgang** (product/diepgang).
-  - Een tweede met **twee expliciete links** naar gerelateerde projecten/inzichten.
-- Alle twee met **simple- + expert-uitleg** conform het Simple/Expert-systeem.
+### Project Categorisering
+Projecten worden gepresenteerd in drie duidelijke secties:
+1. **Data Engineering** (bijv. pipelines, ETL, opslagarchitectuur)
+2. **AI Engineering** (bijv. LLM's, agentic workflows, fine-tuning)
+3. **Coding** (bijv. CLI-tools, libraries, algoritmische tools)
+
+### Simple vs Expert Systeem
+Elk project gebruikt de `<details>` en `<summary>` tags:
+- **Simple:** Focus op de "wat" en "waarom" — een heldere samenvatting van de waarde/impact.
+- **Expert:** Focus op de "hoe" — technische details, architectuurkeuzes en diepgang.
 
 ---
 
-## 5. Voorgestelde bestandslijst
+## 4. Dummy Projecten (Voorbeelden)
 
-```
-portofolio/
-├── css/style.css
-├── index.html
-├── over-mij.html
-├── projects.html
-├── contact.html
-├── projects/_TEMPLATE.html
-├── projects/product-1.html     (dummy voorbeeld 1)
-├── projects/product-2.html     (dummy voorbeeld 2)
-├── img/        (leeg tot eigen beelden toegevoegd worden)
-└── README.md
-```
+### Project A (AI Engineering)
+- **Titel:** "Context-Aware Document Agent"
+- **Simple:** Een systeem dat honderden PDF-documenten doorzoekt om specifieke vragen te beantwoorden met bronvermelding.
+- **Expert:** Implementatie van RAG (Retrieval-Augmented Generation) met een hybride zoekalgoritme en een custom vector-database indexing strategie.
+- **Link naar:** Project B (Data Engineering).
 
-## 6. Openstaande keuzes om te bevestigen
+### Project B (Data Engineering)
+- **Titel:** "Real-time Stream Processor"
+- **Simple:** Een systeem dat live data van sensoren verwerkt en direct visualiseert.
+- **Expert:** Gebruik van Kafka voor message queuing, Spark Streaming voor verwerking en een schaalbare Postgres-opslag.
+- **Link naar:** Project A (AI Engineering).
 
-1. **Naam placeholder:** `[Naam]` nu laten, of nu invullen?
-2. **Accentkleur:** teal `#10b297` vasthouden, of alternatief?
-3. **Dummy-projecten:** nu bouwen of eerst template + lege kaarten?
-4. Plan als bestand schrijven naar `C:\Users\ToRin\.opencode\plan`?
-5. Extra optie: footer met privacy-/cookies-kноп?
+---
+
+## 5. Roadmap
+1. **Fase 1: Foundation** — Opzetten van de folderstructuur en `style.css` met de design tokens.
+2. **Fase 2: Template** — Bouwen van `_TEMPLATE.html` en de basislayout van `projects.html`.
+3. **Fase 3: Content** — Invoeren van de categorisering en de twee dummy-projecten.
+4. **Fase 4: Finalisatie** — Review tegen `skills.md` en finetunen van de typografie en spacing.

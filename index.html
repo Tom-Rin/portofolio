@@ -3,35 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio</title>
+    <title>[Naam] — Data Scientist</title>
     <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+
+    <header class="container">
+        <div class="logo">[Naam]</div>
         <nav>
-            <div class="logo">Portofolio</div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="over-mij.html">Over Mij</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="projects.html">Projecten</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+
+    <main class="container">
         <section class="hero">
-            <h1>Hallo, ik ben [Naam]</h1>
-            <p>Web ontwikkelaar | Designer | Creatief denker</p>
+            <p class="mono">Data Scientist & Builder</p>
+            <h1>Data vertellen een verhaal. Ik zorg dat het verhaal goed verteld wordt.</h1>
+            <p>
+                Een portfolio van projecten die variëren van complexe data-pipelines tot experimentele AI-agenten. <br>
+                Focus op robuuste techniek en heldere inzichten.
+            </p>
+            <a href="projects.html" style="padding: 1rem 2rem; border: 1px solid var(--color-accent); display: inline-block; margin-top: 2rem;">Bekijk Projecten</a>
         </section>
-        <section class="projects-preview">
-            <h2>Recente Projects</h2>
+
+        <section class="section">
+            <h2>Recent Projecten</h2>
             <div class="project-grid">
-                <!-- Projects worden hier geladen -->
+                <!-- AI Engineering -->
+                <div class="project-card">
+                    <span class="category">AI Engineering</span>
+                    <h3>Context-Aware Document Agent</h3>
+                    <p>Een intelligent systeem om grote hoeveelheden PDF-data te doorzoeken en te analyseren.</p>
+                    <a href="projects/product-1.html">Bekijk project &rarr;</a>
+                </div>
+
+                <!-- Data Engineering -->
+                <div class="project-card">
+                    <span class="category">Data Engineering</span>
+                    <h3>Real-time Stream Processor</h3>
+                    <p>Live dataverwerking en automatisering van sensor-feeds voor directe visualisatie.</p>
+                    <a href="projects/product-2.html">Bekijk project &rarr;</a>
+                </div>
+
+                <!-- Coding -->
+                <div class="project-card">
+                    <span class="category">Coding</span>
+                    <h3>Custom CLI Toolkit</h3>
+                    <p>Een verzameling op maat gemaakte tools om dagelijkse data-taken te versnellen.</p>
+                    <a href="#">Binnenkort beschikbaar</a>
+                </div>
             </div>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 [Naam]. Alle rechten voorbehouden.</p>
+        <p>&copy; 2024 [Naam]. Gemaakt met focus op data en design.</p>
     </footer>
+
 </body>
 </html>

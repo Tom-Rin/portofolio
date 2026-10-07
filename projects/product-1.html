@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context-Aware Document Agent — [Naam]</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="project-page">
+    <header class="container">
+        <div class="logo">[Naam]</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../over-mij.html">Over Mij</a></li>
+                <li><a href="../projects.html">Projecten</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <article class="project-detail">
+            <span class="category">AI Engineering</span>
+            <h1>Context-Aware Document Agent</h1>
+            
+            <section class="summary-box">
+                <h2>Samenvatting</h2>
+                <p>Een intelligent systeem dat honderden PDF-documenten doorzoekt om specifieke vragen te beantwoorden met nauwkeurige bronvermelding. Het doel is om complexe documentatie toegankelijk te maken voor niet-technische gebruikers.</p>
+            </section>
+
+            <details>
+                <summary>Technische Diepgang (Expert)</summary>
+                <div class="details-content">
+                    <p>Dit project maakt gebruik van <strong>Retrieval-Augmented Generation (RAG)</strong>. De kernarchitectuur bestaat uit:</p>
+                    <ul>
+                        <li><strong>Embeddings:</strong> Gebruik van de OpenAI `text-embedding-3-small` modellen.</li>
+                        <li><strong>Vector Database:</strong> Een Pinecone instance voor het opslaan en doorzoeken van vector-representaties.</li>
+                        <li><strong>Hybride Zoekalgoritme:</strong> Een combinatie van semantische zoekopdrachten en keyword-matching (BM25) om de relevantie te verhogen.</li>
+                        <li><strong>Data Processing:</strong> Een custom parser in Python die PDF-tabellen en complexe layout-structuren correct extraheert naar tekst-chunks.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <div class="navigation-links">
+                <a href="../projects.html">← Terug naar overzicht</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2024 [Naam].</p>
+    </footer>
+</body>
+</html>
