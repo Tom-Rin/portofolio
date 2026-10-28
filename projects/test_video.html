@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Test</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script>
+        window.basePath = '../';
+    </script>
+</head>
+<body class="container">
+
+    <header class="container">
+        <div id="header-placeholder"></div>
+    </header>
+
+    <main class="container">
+        <h1>Video Test</h1>
+        <p>Deze pagina test of video's correct laden vanuit de <code class="mono">img/</code> folder.</p>
+
+        <div class="project-card">
+            <h3>Master Project Video</h3>
+            <!-- Test met de ActorCritic video -->
+            <video controls width="800" style="max-width: 100%; border: 1px solid var(--color-line);">
+                <source src="../img/master_project/ActorCritic.mp4" type="video/mp4">
+                Uw browser ondersteunt geen video-elementen.
+            </video>
+            <p>Pad: <code class="mono">../img/master_project/ActorCritic.mp4</code></p>
+        </div>
+
+        <div class="project-card" style="margin-top: 2rem;">
+            <h3>Afbeelding Test</h3>
+            <img src="../img/Bachelor project/DSC fit base=0.png" alt="DSC fit base=0.png" style="max-width: 100%; border: 1px solid var(--color-line);">
+            <p>Pad: <code class="mono">../img/Bachelor project/DSC fit base=0.png</code></p>
+        </div>
+    </main>
+
+    <footer id="footer-placeholder"></footer>
+
+    <script src="../js/main.js"></script>
+
+</body>
+</html>

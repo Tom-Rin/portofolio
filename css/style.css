@@ -143,33 +143,59 @@ nav ul {
 }
 
 /* === Simple vs Expert System === */
-details {
-    margin-top: 1rem;
-    padding: 1rem;
+.layer-item {
+    margin-top: 0.5rem;
     border: 1px solid var(--color-line);
-    border-radius: 0; /* Keeping it editorial */
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-summary {
+.layer-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-paper);
+    border: none;
+    border-bottom: 1px solid var(--color-line);
+    cursor: pointer;
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    cursor: pointer;
-    outline: none;
+    transition: background var(--transition-speed);
 }
 
-summary:hover {
-    color: var(--color-accent);
+.layer-btn:hover {
+    background: #f0ede6;
 }
 
-/* Custom marker for summary */
-summary::after {
-    content: " +";
+.layer-btn:last-of-type {
+    border-bottom: none;
 }
 
-.details-content {
-    padding-top: 1rem;
+.layer-btn .btn-title {
+    font-weight: 600;
+}
+
+.layer-btn .btn-hint {
+    opacity: 0.6;
+}
+
+.project-layer-content {
+    padding: 1rem;
     font-size: 0.95rem;
+    display: none; /* Hidden by default */
 }
+
+.project-layer-content.is-open {
+    display: block;
+}
+
+.layer-item.is-open .layer-btn {
+    background: #f4f1ec;
+    border-bottom-color: var(--color-line);
+}
+
 
 /* === Footer === */
 footer {

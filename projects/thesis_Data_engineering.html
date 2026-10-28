@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project — Robot Navigatie</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <script>
+        window.basePath = '../';
+    </script>
+</head>
+<body class="project-page">
+    <header class="container">
+        <div id="header-placeholder"></div>
+    </header>
+
+    <main class="container">
+        <article class="project-detail" id="project-content">
+            <span class="category"></span>
+            <h1></h1>
+            <div class="layers-container">
+                <div class="layer-item">
+                    <button class="layer-btn" data-target="overzicht">
+                        <span class="btn-title"></span>
+                        <span class="btn-hint"></span>
+                    </button>
+                    <div id="overzicht">
+                        <div class="project-layer-content"></div>
+                    </div>
+                </div>
+                <div class="layer-item">
+                    <button class="layer-btn" data-target="expertise">
+                        <span class="btn-title"></span>
+                        <span class="btn-hint"></span>
+                    </button>
+                    <div id="expertise">
+                        <div class="project-layer-content"></div>
+                    </div>
+                </div>
+                <div class="layer-item">
+                    <button class="layer-btn" data-target="diepgang">
+                        <span class="btn-title"></span>
+                        <span class="btn-hint"></span>
+                    </button>
+                    <div id="diepgang">
+                        <div class="project-layer-content"></div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer id="footer-placeholder"></footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/projects.js"></script>
+    <script>
+        renderProject('thesis_Data_engineering');
+    </script>
+</body>
+</html>
