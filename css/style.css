@@ -87,17 +87,58 @@ a:hover {
 }
 
 header {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     border-bottom: 1px solid var(--color-line);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-nav ul {
+.main-nav {
+    width: 100%;
+    max-width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 2rem;
+}
+
+.nav-brand {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-brand a {
+    color: var(--color-ink);
+    border-bottom: none;
+}
+
+.nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    .nav-links {
+        gap: 1.2rem;
+    }
 }
 
 .hero {
