@@ -18,10 +18,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (id && window.projectRegistry[id]) {
         try {
             const projectData = await Utils.fetchJson(`data/${window.projectRegistry[id].dataFile}`);
-            ProjectService.renderProject(projectData);
+            await ProjectService.renderProject(projectData);
         } catch (err) {
             console.error(`Failed to render project ${id}:`, err);
         }
+
     } else if (document.body.classList.contains('hero-page')) {
         ProjectService.renderProjectGrid('home-project-grid', window.HOME_PROJECT_IDS);
     } else if (document.body.classList.contains('project-page')) {

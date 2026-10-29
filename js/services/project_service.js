@@ -6,7 +6,7 @@ const ProjectService = {
      * Renders a project based on its ID.
      * @param {Object} data - The data object for the project.
      */
-    renderProject: function(data) {
+    renderProject: async function(data) {
         if (!data) return;
 
         const categoryEl = document.querySelector('.category');
@@ -17,32 +17,41 @@ const ProjectService = {
 
         const layers = ['overzicht', 'expertise', 'diepgang'];
 
-        layers.forEach((layerKey, index) => {
-            const layerData = data.layers[layerKey];
+        // Fetch all content fragments concurrently
+        const promises = layers.map(async (layerKey) => {
+            const contentPath = data.contentPaths[layerKey];
             const btn = document.querySelector(`.layer-btn[data-target="${layerKey}"]`);
             const content = document.getElementById(layerKey);
 
             if (btn && content) {
-                // Update titles and hints
-                const btnTitle = btn.querySelector('.btn-title');
-                const btnHint = btn.querySelector('.btn-hint');
-                if (btnTitle) btnTitle.textContent = layerData.title;
-                if (btnHint) btnHint.textContent = `(${layerData.hint})`;
+                try {
+                    const contentData = await Utils.fetchJson(contentPath);
+                    
+                    // Update titles and hints
+                    const btnTitle = btn.querySelector('.btn-title');
+                    const btnHint = btn.querySelector('.btn-hint');
+                    if (btnTitle) btnTitle.textContent = data.layers[layerKey].title;
+                    if (btnHint) btnHint.textContent = `(${data.layers[layerKey].hint})`;
 
-                // Inject content
-                const contentEl = content.querySelector('.project-layer-content');
-                if (contentEl) {
-                    contentEl.innerHTML = layerData.content;
-                }
+                    // Inject content
+                    const contentEl = content.querySelector('.project-layer-content');
+                    if (contentEl) {
+                        contentEl.innerHTML = contentData;
+                    }
 
-                // Initial state: first layer always open, others can be toggled
-                if (index === 0) {
-                    contentEl.classList.add('is-open');
-                } else {
-                    contentEl.classList.remove('is-open');
+                    // Initial state: first layer always open, others can be toggled
+                    if (layerKey === 'overzicht') {
+                        contentEl.classList.add('is-open');
+                    } else {
+                        contentEl.classList.remove('is-open');
+                    }
+                } catch (err) {
+                    console.error(`Failed to fetch content for ${layerKey}:`, err);
                 }
             }
         });
+
+        await Promise.all(promises);
 
         // Add click listeners for the accordion toggle
         document.querySelectorAll('.layer-btn').forEach(btn => {
