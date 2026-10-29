@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
 
-    // Check if we are on a project view page and have a valid ID
-        // Check if we are on a project view page and have a valid ID
     if (id && window.projectRegistry[id]) {
         try {
             const projectData = await Utils.fetchJson(`data/${window.projectRegistry[id].dataFile}`);
@@ -24,6 +22,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         } catch (err) {
             console.error(`Failed to render project ${id}:`, err);
         }
+    } else if (document.body.classList.contains('hero-page')) {
+        ProjectService.renderProjectGrid('home-project-grid', window.HOME_PROJECT_IDS);
+    } else if (document.body.classList.contains('project-page')) {
+        ProjectService.renderProjectGrid('overview-project-grid', window.OVERVIEW_PROJECT_IDS);
     }
-
 });

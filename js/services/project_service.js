@@ -57,6 +57,52 @@ const ProjectService = {
                 }
             };
         });
+    },
+
+    /**
+     * Renders a grid of projects based on a list of IDs.
+     * @param {string} containerId - The ID of the container element.
+     * @param {string[]} projectIds - The list of project IDs to render.
+     */
+    renderProjectGrid: async function(containerId, projectIds) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        UI.showLoading(container);
+
+        try {
+            const projectPromises = projectIds.map(id => {
+                const dataFile = window.projectRegistry[id]?.dataFile;
+                if (!dataFile) {
+                    console.error(`No data file found for project ID: ${id}`);
+                    return Promise.resolve(null);
+                }
+                return Utils.fetchJson(`data/${dataFile}`).then(data => ({ id, data }));
+            });
+
+            const projects = await Promise.all(projectPromises);
+            
+            container.innerHTML = '';
+            projects.forEach(project => {
+                if (!project || !project.data) return;
+                
+                const data = project.data;
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                
+                card.innerHTML = `
+                    <span class="category">${data.category}</span>
+                    <h3>${data.title}</h3>
+                    <p>${data.summary}</p>
+                    <a href="../projects/view.html?id=${project.id}" class="project-link">Bekijk project &rarr;</a>
+                `;
+                
+                container.appendChild(card);
+            });
+        } catch (err) {
+            console.error(`Failed to render project grid:`, err);
+            UI.showContent(container, '<p class="error">Error loading projects.</p>');
+        }
     }
 };
 

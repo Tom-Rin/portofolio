@@ -5,4 +5,18 @@ const projectRegistry = {
     'thesis_Data_science': { title: 'Optimalisatie van Active Inference voor Roboten', category: 'Data Science', dataFile: 'thesis_Data_science.json' }
 };
 
+window.HOME_PROJECT_IDS = [
+    'thesis_Data_science',
+    'thesis_Data_engineering',
+    'Master_project',
+    'Bachelor_scriptie'
+];
+
+window.OVERVIEW_PROJECT_IDS = [
+    'thesis_Data_science',
+    'thesis_Data_engineering',
+    'Master_project',
+    'Bachelor_scriptie'
+];
+
 window.projectRegistry = projectRegistry;
