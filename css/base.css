@@ -1,0 +1,52 @@
+/* === Base & Reset === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: var(--line-height);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* === Typography === */
+h1, h2, h3, .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); }
+h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1.5rem;
+    max-width: 65ch; /* Optimal line length */
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-speed);
+}
+
+a:hover {
+    border-color: var(--color-accent);
+}
+
+.mono {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}

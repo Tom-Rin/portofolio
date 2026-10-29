@@ -1,0 +1,21 @@
+/* Accessibility: Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    .nav-links {
+        gap: 1.5rem;
+    }
+    .hero {
+        padding: 4rem 0;
+    }
+}

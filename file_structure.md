@@ -46,5 +46,4 @@ This file describes the current directory structure of the portfolio project to 
 - `Projects_markdown/`: Raw content in Markdown format for project documentation.
     - Contains `.md` files for each project in the portfolio.
 
-- `.gitignore`: Git exclusion rules.
 - `opencode.json`: Local configuration for OpenCode.

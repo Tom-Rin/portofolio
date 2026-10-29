@@ -1,0 +1,19 @@
+/* === Design Tokens === */
+:root {
+    /* Palette */
+    --color-paper: #fcfbf7;
+    --color-ink: #1a1c1e;
+    --color-line: #e4e0d8;
+    --color-accent: #10b297; /* Teal */
+
+    /* Typography */
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Layout */
+    --max-width: 800px;
+    --line-height: 1.6;
+    --spacing-unit: 1rem;
+    --transition-speed: 0.3s;
+}
