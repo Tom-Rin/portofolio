@@ -3,21 +3,9 @@
     "title": "Analysemodellering van Thermische Zouten & Materiaalkarakterisering",
     "category": "Data Analytics",
     "summary": "Het succesvol modelleren van complexe fysieke fasewisselingen in zouten voor de ontwikkeling van duurzame warmtebatterijen, ondersteund door een multidisciplinaire analyse van DSC-, TGA- en XRD-metingen.",
-    "layers": {
-        "overzicht": {
-            "title": "Overzicht",
-            "hint": "Niet-technisch",
-            "content": "<div class=\"summary-box\"><h2>Overzicht</h2><p><strong>Pitch:</strong> Het succesvol modelleren van complexe fysieke fasewisselingen in zouten voor de ontwikkeling van duurzame warmtebatterijen, ondersteund door een multidisciplinaire analyse van DSC-, TGA- en XRD-metingen.</p><p><strong>Kernresultaat:</strong> Door parameters uit de literatuur aan te passen en deze wiskundig te reguleren, heb ik een model gecreëerd dat de overgang van zouten tussen verschillende toestanden accuraat voorspelt. Hierdoor was er een nieuwe fase ontdekt. Dit is cruciaal voor het veilig en efficiënt opslaan van energie.</p><p><strong>Kernconcepten:</strong></p><ul><li>Python (SciPy) & Data Analytics</li><li>Datavisualisatie & Interpretatie</li><li>Literatuuronderzoek & Modeladaptatie</li><li>Multidisciplinaire Materiaalkarakterisering (DSC, TGA, XRD)</li></ul></div>"
-        },
-        "expertise": {
-            "title": "Expertise",
-            "hint": "Management",
-            "content": "<h2>Expertise</h2><p><strong>Data Analytics & Interpretatie:</strong></p><p>In dit project stond de interpretatie en visualisatie van complexe datasets centraal. Door data van DSC-, TGA- en XRD-metingen te integreren, kon ik een holistisch beeld vormen van het zout gedrag. Een funderend onderdeel hiervan was het opschonen van de data (door het corrigeren van baseline-drift in de DSC-metingen) en het extraheren van bruikbare informatie uit diverse XRD-formaten. Door deze data zorgvuldig te visualiseren, konden subtiele anomalijen worden ontdekt die cruciaal waren voor het identificeren van nieuwe fasen.</p><p><strong>Modeladaptatie:</strong></p><p>In plaats van een model vanaf nul te ontwikkelen, heb ik bestaande wiskundige formules uit de literatuur geanalyseerd, begrepen en aangepast aan de specifieke eigenschappen van het onderzochte zout. Deze aanpak zorgde ervoor dat het model niet alleen wiskundig accuraat was, maar ook fysisch consistent bleef met de waarnemingen uit de verschillende karakteriseringstechnieken.</p>"
-        },
-        "diepgang": {
-            "title": "Diepgang",
-            "hint": "Technisch/Wiskunde",
-            "content": "<h2>Diepgang</h2><p><strong>Regulering en het voorkomen van Overfitting:</strong></p><p>Een cruciaal onderdeel van dit project was het \"temmen\" van complexe, niet-lineaire optimalisatieprocessen om fysisch logische resultaten te verkrijgen.</p><p><strong>De Analyse-flow (Case-study):</strong></p><ul><li><strong>Stap 1: De Observatie (Plot 1):</strong> In de DSC-metingen was een subtiele 'shoulder' zichtbaar rond de 126°C. Door de data te visualiseren, werd direct duidelijk dat een standaard model met één component deze overgang niet kon verklaren. <br><br> <img src=\"../img/Bachelor project/DSC fit base=0.png\" alt=\"DSC fit base=0.png\"></li><li><strong>Stap 2: De Wiskundige Uitdaging:</strong> Bij het toevoegen van een tweede component om de nieuwe fase te vatten, liep ik tegen een probleem aan: de complexe niet-lineaire formule bood te veel vrijheidsgraden. Zonder beperkingen leverde het model \"wiskundig correcte\" oplossingen op die fysisch onmogelijk waren—bijvoorbeeld een component die buiten de grenzen van de data viel (Plot 2).</li><li><strong>Stap 3: De Oplossing (Regulatie):</strong> Om overfitting te voorkomen, heb ik het aantal variabelen gereduceerd van 15 naar 9 door specifieke fysische parameters te fixeren, zoals de baseline (die door drift gecorrigeerd moest worden) en de warmtecapaciteit (Cp). Door deze 'harde grenzen' op te leggen, dwong ik het optimalisatieproces om binnen de grenzen van de natuurkunde te blijven.</li><li><strong>Het Resultaat (Plot 3):</strong> Dit leidde tot een fysisch consistente fit die de aanwezigheid van de nieuwe fase succesvol valideerde. <br><br> <img src=\"../img/Bachelor project/fitted with 1 piek (1).png\" alt=\"fitted with 1 piek (1).png\"></li></ul><p><em>Voor de volledige wiskundige onderbouwing en de specifieke formules die uit de literatuur zijn aangepast, kun je de technische bijlage raadplegen.</em></p><p><em>Voor de volledige details van de onderzoeksmethoden, inclusief de volledige...</em></p>"
-        }
+    "contentPaths": {
+        "overzicht": "content/Bachelor_scriptie/overzicht.html",
+        "expertise": "content/Bachelor_scriptie/expertise.html",
+        "diepgang": "content/Bachelor_scriptie/diepgang.html"
     }
 }

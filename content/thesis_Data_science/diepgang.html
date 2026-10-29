@@ -1,0 +1,15 @@
+<h2>Diepgang</h2><p><strong>De Intuïtie: Wat is een 'Vast-punt'?</strong></p><p>Stel je een wiskundige reeks voor waarin elke volgende waarde ($x_{t+1}$) afhangt van de vorige waarde ($x_t$). Een simpel voorbeeld is de volgende regel:
+$x_{t+1} = 0.5 \cdot x_t$
+
+Als we beginnen met $x_0 = 8$, dan is $x_1$ gelijk aan $4$.
+Wat wordt $x_2$? (Antwoord: $x_2 = 0.5 \cdot 4 = 2$).
+Wat wordt $x_3$? (Antwoord: $x_3 = 1$).
+Als dit proces oneindig wordt herhaald, nadert $x$ naar $0$. Maar stel je voor als $x_0 = 0$, dan is $x_1 = 0.5 \cdot 0 = 0$ en ook $x_2 = 0.5 \cdot 0 = 0$. In de wiskunde noemen we een punt waar de invoer en de uitvoer gelijk zijn ($x = f(x)$) het **vaste-punt** (fixed-point).</p><p>**Het Probleem in Roboti-navigatie**</p><p>In dit project wordt een AI-agent aangepast om obstakels te vermijden middels een gespecialiseerde prior (de NUV-prior). Deze prior is ontworpen om de robot te dwingen aan bepaalde veiligheidsvoorwaarden te voldoen (zoals $x > a$). In de standaard literatuur wordt dit bereikt via een iteratief proces, zoals weergegeven door: $\begin{align}
+z_{l+1} =(\frac{1}{\sigma^2}+\frac{1}{\sigma^2_l})^{-1}(\frac{s}{\sigma^2}+\frac{m_l}{\sigma^2_l})\\
+\sigma^2_{l+1} = \frac{|a-z_{l+1}|}{\gamma}\\
+m_{l+1} = |a-z_{l+1}|+a
+\end{align}$</p><p>Het probleem is dat de tijd die nodig om deze convergentie te bereiken sterk varieert, afhankelijk van de situatie (zoals de mate van onzekerheid van de agent over zijn positie). Voor een mobiele robot die binnen milliseconden moet reageren, is een onvoorspelbare latentie een kritiek risico voor de veiligheid. Als de agent te lang bezig is met het 'zoeken' naar de juiste route, mist hij de kans om tijdig te reageren.</p><p>**De Oplossing: Van Iteratie naar Directe Berekening**</p><p>In plaats van te wachten tot de agent via een lus het juiste punt vindt, kan het probleem worden geformuleerd als een analytische vaste-puntvergelijking. Door deze formule analytisch op te lossen, is de "eindbestemming" direct beschikbaar. Veel termen vallen weg, waardoor de oplossing elegant wordt.
+De vaste-punt $z$ wordt berekend door:
+$z = (\frac{1}{\sigma^2}+\frac{1}{\sigma^2_{\infty}(z)})^{-1}(\frac{s}{\sigma^2} + \frac{m_\infty(z)}{\sigma^2_\infty (z)})$  
+$= (\frac{1}{\sigma^2}+\frac{\gamma}{|a - z|})^{-1}(\frac{s}{\sigma^2} + \frac{\gamma (|a-z| +a)}{|a-z|})$  
+Door deze transformatie krijgt het AI-model een "lineaire" representatie van een circulaire beweging. Het systeem "ziet" nu een kleine beweging van $1^\circ$ in plaats van een sprong van $359^\circ$, terwijl het AI-model nog steeds de eenvoudige, snelle berekeningen van een Gaussische verdeling kan gebruiken. Dit is de essentie van **Data Engineering**: het vertalen van de complexe, ruwe werkelijkheid naar een vorm die de AI optimaal kan verwerken.</p>
