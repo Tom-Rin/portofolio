@@ -10,8 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
 </head>
-<body>
-
+<body class="hero-page">
     <header class="container">
         <div id="header-placeholder"></div>
     </header>
@@ -19,12 +18,15 @@
     <main class="container">
         <section class="hero">
             <p class="mono">Data Specialist</p>
-            <h1>Van complexe wiskundige theorie naar robuuste, real-time systemen.</h1>
+            <h1 class="main-title">Van complexe wiskundige theorie naar robuuste, real-time systemen.</h1>
             <p>
                 Een portfolio van projecten die variëren van complexe data-pipelines tot real-time AI. <br>
                 Focus op om systemen operationeel te krijgen.
             </p>
-            <a href="projects.html" style="padding: 1rem 2rem; border: 1px solid var(--color-accent); display: inline-block; margin-top: 2rem;">Bekijk Projecten</a>
+            <div class="hero-actions">
+                <a href="projects.html" class="btn-primary">Bekijk Projecten</a>
+                <a href="over-mij.html" class="btn-secondary">Over Mij</a>
+            </div>
         </section>
 
         <section class="section">
@@ -34,7 +36,7 @@
                     <span class="category">Data Science</span>
                     <h3>Optimalisatie van Active Inference voor Roboten</h3>
                     <p>Het omzetten van een traag, onvoorspelbaar zoekproces naar een directe, wiskundig gegarandeerde berekening (one-step convergence).</p>
-                    <a href="../projects/view.html?id=thesis_Data_science">Bekijk project &rarr;</a>
+                    <a href="../projects/view.html?id=thesis_Data_science_ai">Bekijk project &rarr;</a>
                 </div>
                 <div class="project-card">
                     <span class="category">Data Engineering</span>
@@ -62,10 +64,11 @@
 
     <script src="../js/utils.js"></script>
     <script src="../js/services/core_service.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/projects.js"></script>
     <script src="../js/main.js"></script>
     <script>
         window.basePath = "../";
     </script>
-
 </body>
 </html>
