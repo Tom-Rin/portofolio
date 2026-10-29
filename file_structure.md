@@ -9,7 +9,19 @@ This file describes the current directory structure of the portfolio project to 
     - `header.html`: The site header and navigation.
 
 - `css/`: Styling for the entire website.
+    - `base.css`: Base styles and reset.
+    - `footer.css`: Footer styles.
+    - `layout.css`: Layout and grid system.
+    - `projects.css`: Project-specific styling.
+    - `responsive.css`: Media queries and responsive behavior.
     - `style.css`: Main stylesheet containing design tokens and layout rules.
+    - `tokens.css`: Core design tokens (colors, sizing, etc.).
+
+- `data/`: The "Single Source of Truth" for all project data.
+    - `Bachelor_scriptie.json`: Data for the Bachelor thesis.
+    - `Master_project.json`: Data for the Master project.
+    - `thesis_Data_engineering.json`: Data for the Data Engineering thesis.
+    - `thesis_Data_science.json`: Data for the Data Science thesis.
 
 - `img/`: Assets for project documentation and visual media.
     - `Bachelor project/`: Assets for the Bachelor script.
@@ -19,10 +31,12 @@ This file describes the current directory structure of the portfolio project to 
 
 - `js/`: JavaScript source files and logic modules.
     - `main.js`: Main execution script (handles entry point logic).
-    - `projects.js`: Project registry and rendering logic.
+    - `projects.js`: Project registry, configuration, and rendering logic.
+    - `ui.js`: UI interactions and animations.
     - `utils.js`: Helper functions and configuration constants.
     - `services/`: Modularized logic services.
         - `core_service.js`: Handles component injection and core site services.
+        - `project_service.js`: Handles project rendering and data interaction.
 
 - `main/`: Primary landing pages and standard site views.
     - `contact.html`: Contact information page.
@@ -31,7 +45,4 @@ This file describes the current directory structure of the portfolio project to 
     - `projects.html`: Overview page of the project portfolio.
 
 - `projects/`: Individual project detail pages.
-    - `Bachelor_scriptie.html`: Thesis details.
-    - `Master_project.html`: Master project details.
-    - `thesis_Data_engineering.html`: Data Engineering thesis details.
-    - `thesis_Data_science_ai.html`: AI thesis details.
+    - `view.html`: Dynamic template for all project details.
