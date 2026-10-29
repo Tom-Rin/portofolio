@@ -87,7 +87,7 @@ a:hover {
 }
 
 header {
-    padding: 1.5rem 0;
+    padding: 3rem 0;
     border-bottom: 1px solid var(--color-line);
     display: flex;
     justify-content: center;
@@ -96,7 +96,6 @@ header {
 
 .main-nav {
     width: 100%;
-    max-width: 100%;
 }
 
 .nav-container {
@@ -104,13 +103,13 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 100%;
-    padding: 0 2rem;
+    max-width: 1400px; 
+    padding: 0 3rem;
 }
 
 .nav-brand {
     font-family: var(--font-display);
-    font-size: 1.8rem;
+    font-size: 2.8rem; /* Nog iets groter */
     font-weight: 700;
 }
 
@@ -122,22 +121,23 @@ header {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2.5rem;
+    gap: 5rem; /* Maximale ruimte voor een "verdeeld" effect */
 }
 
 .nav-links a {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 600;
+    padding: 0.5rem 0;
 }
 
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 2rem;
         padding: 1rem;
     }
     .nav-links {
-        gap: 1.2rem;
+        gap: 1.5rem;
     }
 }
 

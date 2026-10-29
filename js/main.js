@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const id = params.get('id');
 
     // Check if we are on a project view page and have a valid ID
+        // Check if we are on a project view page and have a valid ID
     if (id && window.projectRegistry[id]) {
         try {
             const projectData = await Utils.fetchJson(`data/${window.projectRegistry[id].dataFile}`);
@@ -24,4 +25,5 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.error(`Failed to render project ${id}:`, err);
         }
     }
+
 });
