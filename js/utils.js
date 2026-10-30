@@ -28,6 +28,25 @@ const Utils = {
             console.error(`Error fetching JSON from ${url}:`, err);
             throw err;
         }
+    },
+
+/**
+     * Fetch content from an HTML endpoint.
+     * @param {string} endpoint - The relative path to the HTML file.
+     * @returns {Promise<string>} The fetched HTML content as a string.
+     */
+    fetchHtml: async function(endpoint) {
+        const url = this.getBasePath() + endpoint;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
+            }
+            return await response.text();
+        } catch (err) {
+            console.error(`Error fetching HTML from ${url}:`, err);
+            throw err;
+        }
     }
 };
 

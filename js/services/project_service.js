@@ -15,7 +15,13 @@ const ProjectService = {
         if (categoryEl) categoryEl.textContent = data.category;
         if (titleEl) titleEl.textContent = data.title;
 
-        const layers = ['overzicht', 'expertise', 'diepgang'];
+        const layerConfig = {
+            overzicht: { title: 'Overzicht', hint: 'Niet-technisch' },
+            expertise: { title: 'Expertise', hint: 'Engineering Manager' },
+            diepgang: { title: 'Diepgang', hint: '' }
+        };
+
+        const layers = Object.keys(layerConfig);
 
         // Fetch all content fragments concurrently
         const promises = layers.map(async (layerKey) => {
@@ -25,20 +31,20 @@ const ProjectService = {
 
             if (btn && content) {
                 try {
-                    const contentData = await Utils.fetchJson(contentPath);
+                    const contentData = await Utils.fetchHtml(contentPath);
                     
                     // Update titles and hints
                     const btnTitle = btn.querySelector('.btn-title');
                     const btnHint = btn.querySelector('.btn-hint');
-                    if (btnTitle) btnTitle.textContent = data.layers[layerKey].title;
-                    if (btnHint) btnHint.textContent = `(${data.layers[layerKey].hint})`;
-
+                    if (btnTitle) btnTitle.textContent = layerConfig[layerKey].title;
+                    if (btnHint) btnHint.textContent = layerConfig[layerKey].hint ? `(${layerConfig[layerKey].hint})` : '';
+                    
                     // Inject content
                     const contentEl = content.querySelector('.project-layer-content');
                     if (contentEl) {
                         contentEl.innerHTML = contentData;
                     }
-
+                    
                     // Initial state: first layer always open, others can be toggled
                     if (layerKey === 'overzicht') {
                         contentEl.classList.add('is-open');
